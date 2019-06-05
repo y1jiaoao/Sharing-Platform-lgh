@@ -1,0 +1,33 @@
+.msg-container{
+    width:80em;
+    margin:auto;
+}
+.msg-type{
+    width:15%;
+    float:left;
+
+}
+.msg-list{
+    width:82%;
+    float:right;
+    padding: 2em;
+
+    position:relative
+}
+.msg-list-2{
+    position:absolute;
+    top:1em
+}
+.msg-item{
+    font-size:1.5em;
+    width:38em;
+}
+.msg-item-content{
+    float:left;
+    width:70%;
+
+}
+.msg-item-time{
+    float:right;
+    font-size:0.8em;
+}

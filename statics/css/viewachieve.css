@@ -1,0 +1,156 @@
+.va-main{
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 70px;
+}
+.left-view{
+    margin:0 auto;
+    width: 800px;
+}
+.right-view{
+    float: right;
+    width: 400px;
+}
+.key-content {
+    line-height: 25px;
+    text-align: left;
+    color: #333;
+    margin-top: 5px;
+}
+.love-wr {
+    font-size: 13px;
+    overflow: hidden;
+    line-height: 15px;
+    margin: 17px 0 25px;
+
+}
+.mar-src{
+    margin-right: 25px;
+}
+.color-src{
+    color:#999999;
+}
+.author-wr {
+    width: 100%;
+    overflow: hidden;
+    color: #999;
+    font-size: 14px;
+}
+.label{
+    width: 50px;
+    font-size: 14px;
+    color: #999999;
+    margin-top: 2px;
+    padding-left: 0px;
+    float: left;
+}
+.author-text{
+    width: 600px;
+    color: #06f;
+}
+.abstract-wr{
+    margin-top: 5px;
+}
+.abstract {
+    width: 600px;
+    color: #666;
+}
+.div-inline{ display:inline-block}
+.ubinfo {
+    line-height: 25px;
+    padding-bottom: 20px;
+}
+.paper-src-wr {
+    font-size: 13px;
+    margin-top: 20px;
+    margin-bottom: 23px;
+    min-height: 150px;
+    border: #f9f9f9 2px solid;
+    -webkit-border-radius: 0 2px 2px;
+    -moz-border-radius: 0 2px 2px;
+    -ms-border-radius: 0 2px 2px;
+    border-radius: 0 2px 2px;
+}
+ .paper-src-tab {
+    border-bottom: 1px solid #f1f1f1;
+    height: 45px;
+    border: 1px solid #f1f1f1;
+    background-color: #f8f8f8;
+    border-bottom: 0;
+}
+.paper-src-content {
+    padding: 15px 30px;
+    border: 1px solid #f1f1f1;
+    border-top: 0;
+    -webkit-border-radius: 0 2px 2px;
+    -moz-border-radius: 0 2px 2px;
+    -ms-border-radius: 0 2px 2px;
+    border-radius: 0 2px 2px;
+}
+.src-container {
+    display: none;
+}
+.item-span {
+    display: inline-block;
+    height: 30px;
+    width: 300px;
+    line-height: 30px;
+}
+.item {
+    display: inline-block;
+    text-decoration: none;
+}
+.subinfo-tool {
+    float: none;
+    display: block;
+    margin-top: 15px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.subinfo {
+    line-height: 25px;
+    padding-bottom: 20px;
+    display: inline-block;
+}
+a:link{text-decoration:none;} /*指正常的未被访问过的链接*/
+
+a:visited{text-decoration:none;} /*指已经访问过的链接*/
+
+a:hover{text-decoration:none;} /*指鼠标在链接*/
+
+a:active{text-decoration:none;} /*指正在点的链接*/
+
+a:focus{text-decoration:none;}
+
+p{padding:0px; margin:0px;display: inline;}
+
+.comment-line{
+    width:100%;
+    height:2px;
+    background-color:silver;
+    margin-bottom:2em;
+    margin-top:2em;
+}
+
+.comment-container{
+    width:100%;
+}
+
+.comment-item{
+    width:100%;
+    height:auto;
+    padding:1em;
+    border-top-style:solid;
+    border-bottom-style:solid;
+    border-width:1px;
+    border-color:silver;
+}
+
+.my-comment-container{
+
+}
+
+.my-comment-text{
+
+}
+

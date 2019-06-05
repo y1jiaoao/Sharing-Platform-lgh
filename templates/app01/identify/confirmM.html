@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link rel="shortcut icon" href="/static/ico/favicon.png">
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!--webfonts-->
+		<!--//webfonts-->
+    <title>step2</title>
+    <link href="/static/individual/css/identify.css" rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid" >
+            <div class="nav navbar-default  navbar-header">
+                <a class="navbar-brand" href="/index/">iScholar</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav nav-pills navbar-left">
+
+                            <li class="active"><a href="/index/">主页</a></li>
+                </ul>
+            </div>
+            <div>
+                    <ul class="nav navbar-nav nav-pills navbar-right">
+                         <ul class="nav navbar-nav right">
+                                {% if not user_id %}
+                                    <li><a href="/loginView/">注册/登录</a></li>
+                                {% else %}
+                                    <li><a>您已经登录</a></li>
+                                    <li><a href="/accounts/login/">注销</a></li>
+                                    <li><a href="/PS/">个人信息</a></li>
+                                    <li><a href="/message/">消息中心</a></li>
+                                {% endif %}
+                        </ul>
+                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="mainbody">
+        <div class="bodycenter">
+        	<div class="progressout">
+            	<div class="progressdown"></div>
+                <div class="progresson"></div>
+                <div class="progressdown"></div>
+                <div class="progressdown"></div>
+            </div>
+            <div class="title"><h4>邮箱认证</h4></div>
+            <div class="body">
+            	<div class="bodycontainer">
+                	<form role="form" action="/send_my_email/" method="POST">
+                    	<div class="form-group">
+                    		<label for="emailconfirm">提交后请点击邮件中链接来进入下一步认证（请不要登出账号）</label>
+                    		<input type="email" name="email" class="form-control" id="emailconfirm" placeholder="请使用您所在机构的邮箱" required>
+                            {% csrf_token %}
+                    	</div>
+                    	<div class="form-group" style="margin:40px; text-align:center;">
+                    		<button type="submit" class="btn btn-default" style="width:80px; height:40px;">提交</button>
+                    	</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

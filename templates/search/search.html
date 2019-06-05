@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/search.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/bootstrap-select.min.css" rel='stylesheet' type='text/css' />
+    <link rel="shortcut icon" href="/static/ico/favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
+    <script src="/static/js/bootstrap-select.min.js"></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--webfonts-->
+    <!--//webfonts-->
+    <title>首页</title>
+</head>
+<style>
+    .keyword{color:red;}
+    .search_result-container{
+        width:70em;
+        margin:auto;
+    }
+    .search_result-item{
+        width:100%;
+        margin-bottom:2em;
+
+    }
+    .search_result-url{
+        font-size:1.5em
+    }
+</style>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid" >
+            <div class="nav navbar-default  navbar-header">
+                <a class="navbar-brand" href="#">iScholar</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav nav-pills navbar-left">
+
+                            <li class="active"><a href="#">主页</a></li>
+
+                </ul>
+            </div>
+            <div>
+                <ul class="nav navbar-nav nav-pills navbar-right">
+                     <ul class="nav navbar-nav right">
+                            <!--{% if not user_id %}
+                                <li><a href="/registerView/">注册/登录</a></li>
+                            {% else %}
+                                <li><a>您已经登录</a></li>
+                                <li><a href="/accounts/login/">注销</a></li>
+                                <li><a href="/userinfoView/{{user_id}}">个人信息</a></li>
+                            {% endif %}-->
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <form class="searchmain" method='get' action="/search/" target="_blank">
+
+
+            <div class="search-form" class="input-box">
+                <div class="input-box tab-content">
+                    <div id="menu3" class="tab-pane active " role="tabpanel">
+                        <input class="search-input" type="text" name="q" placeholder="查询内容" value="" autocomplete="off">
+                        <input class="btn search-btn" type="submit" value="查询">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="search_result-container">
+        {% load highlight %}{% load more_like_this %}
+        {% if query %}{% more_like_this entry as related_content %}
+            {% for result in page.object_list %}
+                <div class="search_result-item">
+                    {% if result.object.paper_id %}
+                    <p>
+                        <a href="/essay/{{result.object.paper_id}}" target="_blank" class="search_result-url">论文：{{ result.object.paper_name }} </a><br/>
+                        {% highlight result.text with query css_class "keyword" %}
+                    </p>
+                    {% elif result.object.patent_id %}
+                    <p>
+                        <a href="/patent/{{result.object.patent_id}}" target="_blank" class="search_result-url">专利：{{ result.object.patent_name }} </a><br/>
+                        {% highlight result.text with query css_class "keyword" %}
+                    </p>
+                    {% else %}
+                    <p>
+                        <a href="/expert/{{result.object.expert_id}}" target="_blank" class="search_result-url">专家：{{ result.object.name }} </a><br/>
+                        {% highlight result.text with query css_class "keyword" %}
+                    </p>
+                    {% endif %}
+                </div>
+            {% empty %}
+                <p>啥也没找到</p>
+            {% endfor %}
+            {% if page.has_previous or page.has_next %}
+                <div>
+                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; 上一页{% if page.has_previous %}</a>{% endif %}
+                |
+                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}下一页 &raquo;{% if page.has_next %}</a>{% endif %}
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

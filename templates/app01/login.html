@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>登陆页面</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500"  type='text/css' >
+        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" type='text/css' >
+        <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css" type='text/css' >
+		<link rel="stylesheet" href="/static/css/form-elements.css" type='text/css' >
+        <link rel="stylesheet" href="/static/css/log-style.css" type='text/css' >
+
+        <link rel="shortcut icon" href="/static/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="/static/ico/apple-touch-icon-57-precomposed.png">
+
+        <script src="/static/js/jquery-1.11.1.min.js"></script>
+        <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/static/js/jquery.backstretch.min.js"></script>
+        <script src="/static/js/log-scripts.js"></script>
+    </head>
+
+    <body background="/static/img/backgrounds/1.jpg">
+        <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid" >
+            <div class="nav navbar-default  navbar-header">
+                <a class="navbar-brand" href="/index/">iScholar</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav nav-pills navbar-left">
+
+                            <li ><a href="/index/">主页</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+        <!-- Top content -->
+        <div class="top-content">
+
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>iScholar</strong></h1>
+                            <div class="description">
+                            	<p>
+	                            	以专家为核心的学术资源平台
+                            	</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3 style="vertical-align: middle">登录</h3>
+                                    <p>输入您的用户名和密码，开始新的体验</p>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-key"></i>
+                        		</div>
+                            </div>
+                            <div class="form-bottom" style="padding-bottom: 20px">
+			                    <form role="form" action="/login/" method="post" class="login-form" style="margin-bottom: 20px">
+                                    {% csrf_token %}
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="form-username">用户名</label>
+			                        	<input type="text" name="user_name" placeholder="用户名..." class="form-username form-control" id="form-username">
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="form-password">密码</label>
+			                        	<input type="password" name="password" placeholder="密码..." class="form-password form-control" id="form-password">
+			                        </div>
+			                        <button type="submit" class="btn">登录</button>
+			                    </form>
+                                <form style="text-align: right">
+                                    <span ><a href="/registerView/">没有账户？</a></span>
+                                    <!--<span><a>忘记密码？</a></span>-->
+                                </form>
+
+		                    </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        {% if messages %}
+            <script>
+                {% for msg in messages %}
+                    alert('{{ msg.message }}');
+                {% endfor %}
+            </script>
+        {% endif %}
+    </body>
+
+</html>

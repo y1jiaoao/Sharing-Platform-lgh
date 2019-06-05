@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/expert.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/bootstrap-select.min.css" rel='stylesheet' type='text/css' />
+    <link rel="shortcut icon" href="/static/ico/favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
+    <script src="/static/js/bootstrap-select.min.js"></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--webfonts-->
+    <title>Title</title>
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+        <div class="container-fluid" >
+            <div class="nav navbar-default  navbar-header">
+                <a class="navbar-brand" href="#">xfjz</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav nav-pills navbar-left">
+
+                            <li ><a href="#">主页</a></li>
+                </ul>
+            </div>
+            <div>
+                    <ul class="nav navbar-nav nav-pills navbar-right">
+                         <ul class="nav navbar-nav right">
+                                {% if not user_id %}
+                                    <li><a href="/loginView/">注册/登录</a></li>
+                                {% else %}
+                                    <li><a>您已经登录</a></li>
+                                    <li><a href="/accounts/login/">注销</a></li>
+                                    <li><a href="/userinfoView/{{user}}">个人信息</a></li>
+                                    <li><a href="/message/">消息中心</a></li>
+                                {% endif %}
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="ex-main">
+        <div class="wrap topInfo ">
+          <div class="baseInfo">
+            <div class="info">
+              <h2 class="name" >{{ data.name }}<small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small><small>xxxx@xxx.com</small></h2>
+               <span class="num">
+                  <span>总发文量：</span>
+                  <span>总下载量：</span>
+                  <span>被引频次：</span>
+              </span>
+                 <p class="orgn">
+                  <a target="kcmstarget" style="color: #0a6999">{{ data.institute }}</a>
+                </p>
+              <p class="doma">简介xxx</p>
+              <div class="sideLink">
+                  <span class="shareBoard" >
+                      <a class="icon icon-share" href="#"><i></i>申请认证<em></em>
+                      </a>
+                  </span>
+              </div>
+              </div>
+            </div>
+        </div>
+        <div class="wrap fieldInfo">
+          <div class="baseInfo">
+            <div class="field-pad">
+              <table class="table">
+                    <thead><tr><th>关注领域</th></tr></thead>
+              </table>
+                <a>{{ data.direction }}</a>
+            </div>
+          </div>
+        </div>
+        <div class="wrap listInfo">
+            <nav  class="navbar" role="navigation" style="margin-bottom: 0px">
+                    <ul class="nav nav-tabs">
+                        <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" style="color: black">
+                                    全部年份
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" style="color: black">2019</a></li>
+                                    <li><a href="#" style="color: black">2018</a></li>
+                                    <li><a href="#"style="color: black">2017</a></li>
+                                </ul>
+                            </li>
+                        <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"style="color: black">
+                                    全部类型
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"style="color: black">论文</a></li>
+                                    <li><a href="#"style="color: black">专利</a></li>
+                                </ul>
+                            </li>
+                        <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"style="color: black">
+                                    全部作者
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"style="color: black">第一作者</a></li>
+                                </ul>
+                            </li>
+                        <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"style="color: black">
+                                    按时间降序
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"style="color: black">按时间升序</a></li>
+                                    <li><a href="#"style="color: black">按被引数降序</a></li>
+                                    <li><a href="#"style="color: black">按被引数升序</a></li>
+                                </ul>
+                            </li>
+                    </ul>
+                </nav>
+            <div class="result">
+                <div >
+                    <h3><a>搜索结果第一篇</a></h3>
+                    <div class="res_info">
+                        <span class="res_year">年代</span>-
+                        <span><a>作者1</a>,<a>作者2</a></span>-
+                        <a>杂志</a>-
+                        <span>
+                            <span>被引量：</span>
+                            <a>xxx</a>
+                        </span>
+                    </div>
+
+                </div>
+                <div>
+                    <h3><a>搜索结果第二篇</a></h3>
+                    <div class="res_info">
+                        <span class="res_year">年代</span>-
+                        <span><a>作者1</a>,<a>作者2</a></span>-
+                        <a>杂志</a>-
+                        <span>
+                            <span>被引量：</span>
+                            <a>xxx</a>
+                        </span>
+                    </div>
+
+                </div>
+                <div>
+                    <h3><a>搜索结果第三篇</a></h3>
+                    <div class="res_info">
+                        <span class="res_year">年代</span>-
+                        <span><a>作者1</a>,<a>作者2</a></span>-
+                        <a>杂志</a>-
+                        <span>
+                            <span>被引量：</span>
+                            <a>xxx</a>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+            <ul class="pagination pagination-lg">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+        </div>
+</body>

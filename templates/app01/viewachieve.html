@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/bootstrap-select.min.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/viewachieve.css" rel='stylesheet' type='text/css' />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
+    <script src="/static/js/bootstrap-select.min.js"></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--webfonts-->
+    <!--//下方修改为成果名称-->
+    <title>成果名称需修改</title>
+</head>
+<body>
+<!--导航栏-->
+    <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+        <div class="container-fluid" >
+            <div class="nav navbar-default  navbar-header">
+                <a class="navbar-brand" href="#">xfjz</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav nav-pills navbar-left">
+
+                            <li ><a href="#">主页</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                                    成果分类
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">工科</a></li>
+                                    <li><a href="#">理科</a></li>
+                                    <li><a href="#">农科</a></li>
+                                </ul>
+                            </li>
+                        <li><a href="#">专利大厅</a></li>
+                </ul>
+            </div>
+            <div>
+                    <ul class="nav navbar-nav nav-pills navbar-right">
+                         <ul class="nav navbar-nav right">
+                                {% if not user %}
+                                    <li><a href="/registerView/">注册/登录</a></li>
+                                {% else %}
+                                    <li><a>您已经登录</a></li>
+                                    <li><a href="/accounts/login/">注销</a></li>
+                                    <li><a href="/userinfoView/{{user}}">个人信息</a></li>
+                                {% endif %}
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="va-main">
+        <div class="left-view">
+            <h2 href="#">{{name}}</h2>
+            <div class="key-content">
+                <div class="love-wr">
+                    <a class="color-src">
+                        来源：xx
+                    </a>
+                    <a class="wr-n">
+                        阅读量：xx
+                    </a>
+                </div>
+                <div class="author-wr">
+                    <a class="label">作者：</a>
+                    <a class="author-text" href="#">{{author}}</a>
+                </div>
+                <div class="abstract-wr div-inline">
+                    <div class="label" >摘要：</div>
+                    <a class="abstract" >{{summary}}</a>
+                </div>
+                <div class="abstract-wr ">
+                    <a class="label" >关键词：</a>
+                    <span class="abstract-wr" >
+                        <!--准备写for循环-->
+                        <a href="#">关键词一</a></span>
+                        <a href="#">关键词二</a></span>
+                    </span>
+                </div>
+                <div class="author-wr">
+                    <a class="label">被引量：</a>
+                    <a class="author-text" href="#">个数</a>
+                </div>
+            </div>
+            <div class="paper-src-wr">
+                <ul id="myTab" class="nav nav-tabs paper-src-tab">
+                    <li class="active">
+                        <a href="#menu1" data-toggle="tab">
+                            全部来源
+                        </a>
+                    </li>
+                    <li><a href="#menu2" data-toggle="tab">免费来源</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="menu1" class="active src-container" role="tabpanel">
+                        <span class="item-span">
+                            <a class="item">全部源1</a>
+                        </span>
+                        <span class="item-span">
+                            <a class="item">全部源2</a>
+                        </span>
+                    </div>
+                    <div id="menu2" class="fade src-container" role="tabpanel">
+                        <span class="item-span">
+                            <a class="item">免费源1</a>
+                        </span>
+                        <span class="item-span">
+                            <a class="item">免费源2</a>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

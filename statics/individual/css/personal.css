@@ -1,0 +1,228 @@
+.top-sign
+{
+    height: 30px;
+    width: 100%;
+	background:#F7F7F7;
+}
+.top-labels.left
+{
+	float:left;
+	height:100%;
+	width:80px;
+	text-align:center;
+	line-height:30px;
+	border-radius:8px;
+}
+.top-labels.right
+{
+	float:right;
+	height:100%;
+	width:80px;
+	text-align:center;
+	line-height:30px;
+	border-radius:8px;
+}
+.top-labels:hover
+{
+	background:#EEE;
+}
+.header
+{
+	height: 100px;
+	width: 100%;
+	padding-top:20px;
+}
+.logo
+{
+	height:100%;
+	width:200px;
+	float:left;
+	margin-left:90px;
+	border-right:1px dashed #ccc;
+}
+.banner
+{
+	height:100%;
+	width:70%;
+	float:left;
+}
+img
+{
+	width:100%;
+	height:100%;
+}
+.mainbody
+{
+	margin:30px 80px 40px 60px;
+	height:800px;
+	width:auto;
+}
+.sidebar
+{
+	height:100%;
+	width:20%;
+	text-align:center;
+	float:left;
+}
+.sidehead
+{
+	height:200px;
+	width:100%;
+}
+#person-list
+{
+}
+.bodycontent
+{
+	height:100%;
+	width:80%;
+	float:left;
+}
+.tail
+{
+	width:100%;
+	height:200px;
+	background:#F6F6F6;
+}
+.bodytop
+{
+	height:40px;
+	width:100%;
+	font-size:18px;
+	padding-left:30px;
+	padding-top:10px;
+}
+.bodytopline
+{
+	height:2px;
+	width:100%;
+	margin-left:10px;
+	background:#78BBFE;
+}
+.bodybelly
+{
+	height:100%;
+	width:60%;
+	padding-top:70px;
+}
+.bellyleft
+{
+	width:40%;
+	height:100%;
+	text-align:right;
+	padding-right:20px;
+	float:left;
+}
+.info-list
+{
+	list-style:none;
+	line-height:50px;
+}
+.info-list2
+{
+	height:50px;
+	width:100%;
+	padding-top:10px;
+}
+.info-list3
+{
+	height:200px;
+	width:100%;
+	padding-top:10px;
+}
+.bellyright
+{
+	width:60%;
+	height:100%;
+	float:left;
+}
+#modifybutton
+{
+	width:100px;
+	height:50px;
+	float:right;
+	margin:80px 80px;
+}
+#submitbutton
+{
+	width:100px;
+	height:50px;
+	float:left;
+	margin-top:80px;
+	margin-left:40px;
+}
+#returnbutton
+{
+	width:100px;
+	height:50px;
+	float:left;
+	margin-top:80px;
+	margin-left:40px;
+}
+.info-content
+{
+	width:100%;
+	height:50px;
+}
+#basic_info
+{
+	width:100%;
+	height:200px;
+	margin-top:15px;
+	word-wrap:break-word;
+}
+.lookaccount
+{
+	width:50%;
+	height:500px;
+	text-align:center;
+	padding-top:200px;
+}
+.ReList
+{
+	height:658px;
+	width:800px;
+	margin-top:20px;
+	margin-left:50px;
+}
+.ReListHead
+{
+	height:40px;
+	width:784px;
+}
+.ReListBody
+{
+	height:660px;
+	width:100%;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+.ReListInBody
+{
+	height:660px;
+	width:784px;
+}
+#serialnum
+{
+	width:50px;
+}
+#essayname
+{
+	width:300px;
+}
+#author
+{
+	width:180px;
+}
+#publishtime
+{
+	width:150px;
+}
+#cited
+{
+	width:52px;
+}
+#download
+{
+	width:52px;
+}

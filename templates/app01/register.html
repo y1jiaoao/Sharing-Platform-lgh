@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>Fullscreen Responsive Register Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- CSS -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'type='text/css'>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700'type='text/css'>
+        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css"type='text/css'>
+        <link rel="stylesheet" href="/static/css/reg-style.css"type='text/css'>
+        <script src="/static/js/jquery-1.8.2.min.js"></script>
+        <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/static/js/jquery.backstretch.min.js"></script>
+        <script src="/static/js/reg-scripts.js"></script>
+    </head>
+
+    <body  background="/static/img/backgrounds/1.jpg">
+        <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid" >
+            <div class="nav navbar-default  navbar-header">
+                <a class="navbar-brand" href="/index/">iScholar</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav nav-pills navbar-left">
+
+                            <li ><a href="/index/">主页</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+        <div class="register-container container">
+            <div class="row">
+                <div class="register span6">
+                    <form action="/register/" method="post" style="width: 600px;">
+                                            {% csrf_token %}
+                        <h2 >注册</h2>
+                        <label for="username" style="float: left;padding-left: 8px">用户名</label>
+                        <input type="text" id="username" name="user_name" placeholder="请输入用户名" required>
+                        <label for="email" style="float: left;padding-left: 8px">邮箱</label>
+                        <input type="email" id="email" name="email" placeholder="请输入邮箱">
+                        <label for="password1" style="float: left;padding-left: 8px">密码</label>
+                        <input type="password" id="password1" name="password1" placeholder="密码的格式为6-14位数字和字母组成的字符串" required>
+                        <label for="password2" style="float: left;padding-left: 8px">    确认密码</label>
+                        <input type="password" id="password2" name="password2" placeholder="请再次输入密码" required>
+						<label  style="float: left;padding-left: 8px" >    电话</label>
+                        <input type="text"  name="tel" placeholder="请输入电话">
+						<label  style="float: left;padding-left: 8px">    基本信息</label>
+                        <input type="text"  name="basic_info" placeholder="请输入基本信息">
+
+                        <button type="submit">注册</button>
+                        <p style="padding-top: 10px"><a  href="/loginView/" style="float: right">已有账号？</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div style="height:50px;"></div>
+        <!-- Javascript -->
+        {% if messages %}
+            <script>
+                {% for msg in messages %}
+                    alert('{{ msg.message }}');
+                {% endfor %}
+            </script>
+        {% endif %}
+
+    </body>
+
+</html>
+

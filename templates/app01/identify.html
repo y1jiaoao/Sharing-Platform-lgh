@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!--webfonts-->
+		<!--//webfonts-->
+    <title>个人空间</title>
+    <link href="/static/individual/css/identify.css" rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid" >
+                <div class="nav navbar-default  navbar-header">
+                    <a class="navbar-brand" href="/index/">ischolar</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav nav-pills navbar-left">
+
+                                <li class="active"><a href="/index/">主页</a></li>
+                    </ul>
+                </div>
+                <div>
+                        <ul class="nav navbar-nav nav-pills navbar-right">
+                             <ul class="nav navbar-nav right">
+                                    {% if not user_id %}
+                                        <li><a href="/registerView/">注册/登录</a></li>
+                                    {% else %}
+                                        <li><a>您已经登录</a></li>
+                                        <li><a href="/accounts/login/">注销</a></li>
+                                        <li><a href="/userinfoView/{{user_id}}">个人信息</a></li>
+                                    {% endif %}
+                            </ul>
+                        </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="mainbody">
+        1
+    </div>
+
+</body>
+</html>

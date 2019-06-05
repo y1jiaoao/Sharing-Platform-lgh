@@ -1,0 +1,2 @@
+{{ object.real_name }}
+{{ object.basic_info }}

@@ -1,0 +1,6 @@
+{{ object.paper_name }}
+{{ object.author_name }}
+{{ object.introduction }}
+{{ object.institute }}
+{{ object.keywords }}
+{{ object.cssci }}

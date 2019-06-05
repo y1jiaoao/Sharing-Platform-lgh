@@ -1,0 +1,4 @@
+{{ object.patent_name }}
+{{ object.author_name }}
+{{ object.introduction }}
+{{ object.appliant }}

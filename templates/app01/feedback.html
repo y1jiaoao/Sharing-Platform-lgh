@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/search.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/bootstrap-select.min.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/msg.css" rel='stylesheet' type='text/css' />
+    <link rel="shortcut icon" href="/static/ico/favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
+    <script src="/static/js/bootstrap-select.min.js"></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--webfonts-->
+    <!--//webfonts-->
+    <title>问题反馈</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid" >
+            <div class="nav navbar-default  navbar-header">
+                <a class="navbar-brand" href="#">iScholar</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav nav-pills navbar-left">
+
+                            <li class="active"><a href="/index/">主页</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="nav navbar-nav nav-pills navbar-right">
+                     <ul class="nav navbar-nav right">
+                            {% if not user_id %}
+                                <li><a href="/loginView/">注册/登录</a></li>
+                            {% else %}
+                                <li><a>您已经登录</a></li>
+                                <li><a href="/accounts/login/">注销</a></li>
+                                <li><a href="/PS/">个人信息</a></li>
+                                <li><a href="/message/">消息中心</a></li>
+                            {% endif %}
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="msg-container">
+        <form action="/sendfeedback/" method="POST">
+            <ul class="">
+                <h3>问题反馈</h3>
+                {% csrf_token %}
+                <li>
+                    <textarea type="text" name="content"  placeholder="信息内容" class="form-control" rows="5"></textarea>
+                    <div class="clear"> </div>
+                </li>
+                <br/>
+                <!--<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Please inform me of upcoming  w3layouts, Promotions and news</label>-->
+                <input type="submit" onClick="" value="发送消息">
+                    <div class="clear"> </div>
+            </ul>
+        </form>
+    </div>
+    {% if messages %}
+        <script>
+            {% for msg in messages %}
+                alert('{{ msg.message }}');
+            {% endfor %}
+        </script>
+    {% endif %}
+</body>
+</html>

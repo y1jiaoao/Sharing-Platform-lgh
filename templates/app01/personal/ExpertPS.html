@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!--webfonts-->		<!--//webfonts-->
+    <title>ischolar-个人空间</title>
+    <link href="/static/individual/css/personal.css" rel='stylesheet' type='text/css' />
+
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid" >
+                <div class="nav navbar-default  navbar-header">
+                    <a class="navbar-brand" href="#">xfjz</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav nav-pills navbar-left">
+    
+                                <li class="active"><a href="/index/">主页</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                                        成果分类
+                                        <b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">工科</a></li>
+                                        <li><a href="#">理科</a></li>
+                                        <li><a href="#">农科</a></li>
+                                    </ul>
+                                </li>
+                    </ul>
+                </div>
+                <div>
+                        <ul class="nav navbar-nav nav-pills navbar-right">
+                             <ul class="nav navbar-nav right">
+                                    {% if not user_id %}
+                                        <li><a href="/registerView/">注册/登录</a></li>
+                                    {% else %}
+                                        <li><a>您已经登录</a></li>
+                                        <li><a href="/accounts/login/">注销</a></li>
+                                        <li><a href="/userinfoView/{{user_id}}">个人信息</a></li>
+                                    {% endif %}
+                            </ul>
+                        </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="mainbody">
+        <div class="sidebar">
+        	<div class="sidehead">
+            	<img src="/static/images/headicon.png" style="border-radius:50%; border:2px solid #C9DEFE; width:100px; height:100px; margin:40px;">
+                <p align="center" style="margin-top:-20px;">name</p>
+            </div>
+			<div id="person-list">
+                <ul class="nav nav-pills nav-stacked">
+                  <li class="active"><a href="#info" data-toggle="pill">个人信息</a></li>
+                  <li><a href="#account" data-toggle="pill">账户余额</a></li>
+                  <li><a href="#assets" data-toggle="pill">我的科技成果</a></li>
+                </ul>
+			</div>
+        </div>
+        <div class="bodycontent">
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="info">
+                    <div class="bodytop">
+                    	个人信息
+                    </div>
+                    <div class="bodytopline"></div>
+                    <div class="bodybelly">
+                    	<div class="bellyleft">
+                        	<ul>
+                                <li class="info-list">
+                                    用户名:
+                                </li>
+                                <li class="info-list">
+                                    真实姓名:
+                                </li>
+                                <li class="info-list">
+                                    电话：
+                                </li>
+                                <li class="info-list">
+                                    邮箱：
+                                </li>
+                                <li class="info-list">
+                                    基本信息：
+                                </li>
+                        	</ul>
+                        </div>
+                        <div class="bellyright">
+                            <ul>
+                                <li class="info-list">
+                                    <div class="info-content">{}</div>
+                                </li>
+                                <li class="info-list">
+                                    <div class="info-content">{}</div>
+                                </li>
+                                <li class="info-list">
+                                    <div class="info-content">{}</div>
+                                </li>
+                                <li class="info-list">
+                                    <div class="info-content">{}</div>
+                                </li>
+                        	</ul>
+                            <div id="basic_info">{}</div>
+                            <div id="modifybutton">
+                                <form action="/personalmodify/" method="get">
+                                    <button type="submit" class="btn btn-primary">修改个人信息</button>
+                                </form>
+                            </div>
+                    	</div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="account">
+                	<div class="bodytop">
+                    	余额查询
+                    </div>
+                    <div class="bodytopline"></div>
+                    <div class="lookaccount">
+                    	您的余额：   {}
+                    </div>
+                    <form action="/recharge/" method="get" style="margin-left:400px;">
+                        <button type="submit" class="btn btn-primary">前往充值</button>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="assets">
+                	<div class="bodytop">
+                    	您的科技成果
+                    </div>
+                    <div class="bodytopline"></div>
+                    <div class="ReList">
+                    	<div class="ReListHead">
+                        	<table class="table">
+                                <thead>
+                                    <tr>
+                                        <td id="serialnum">序号</td>
+                                        <td id="essayname">文章名称</td>
+                                        <td id="author">作者</td>
+                                        <td id="publishtime">出版时间</td>
+                                        <td id="cited">被引</td>
+                                        <td id="download">下载</td>
+                                    </tr>
+                                </thead>
+                        	</table>
+                        </div>
+                        <div class="ReListBody">
+                        	<div class="ReListInBody">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td id="serialnum">序号</td>
+                                            <td id="essayname"><a>文章名称</a></td>
+                                            <td id="author">作者</td>
+                                            <td id="publishtime">出版时间</td>
+                                            <td id="cited">被引</td>
+                                            <td id="download">下载</td>
+                                        </tr>
+                                        <tr>
+                                            <td id="serialnum">序号</td>
+                                            <td id="essayname"><a>文章名称</a></td>
+                                            <td id="author">作者</td>
+                                            <td id="publishtime">出版时间</td>
+                                            <td id="cited">被引</td>
+                                            <td id="download">下载</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        	</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tail">
+
+    </div>
+</body>
+</html>

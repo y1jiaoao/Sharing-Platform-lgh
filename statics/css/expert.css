@@ -1,0 +1,277 @@
+.ex-main{
+    margin: 0 auto;
+    padding-top: 70px;
+}
+.topInfo {
+    position: relative;
+    padding: 15px 0;
+    background-color: #f5f5f5;
+}
+.wrap {
+    position: relative;
+    width: 1000px;
+    margin: 20px auto 0;
+}
+.baseInfo{
+    width: 1000px;
+}
+.info {
+    padding: 0 30px;
+    font-weight: normal;
+    font-family: "Microsoft YaHei","΢���ź�";
+}
+.info .name {
+    margin: 0 250px 10px 0;
+    font-size: 34px;
+    line-height: 1.5;
+    color: #000;
+    font-family: "Microsoft YaHei","΢���ź�";
+}
+.kcmsAu .info .name {
+    width: 572px;
+}
+.kcmsAu .info .name {
+    width: 372px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.info .orgn, .info .doma {
+    padding: 5px 0;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #333;
+}
+.info .num {
+
+    padding: 5px 0;
+    font-family: SimSun,����;
+    font-size: 12px;
+    line-height: 2;
+    color: #666;
+}
+.sideLink {
+    float: right;
+    position: absolute;
+    right: 10px;
+    top: 4px;
+    height: 24px;
+    color: #d7d7d7;
+}
+.shareBoard {
+    position: relative;
+    display: inline-block;
+    padding: 1px 1px 0 1px;
+}
+.sameName {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    width: 380px;
+}
+.sideLink {
+    float: right;
+    position: absolute;
+    right: 0px;
+    top: 4px;
+    height: 24px;
+    color: #d7d7d7;
+}
+.sameName .more {
+    color: #666;
+    font: normal 12px/2 SimSun,"����";
+}
+.title {
+    padding: 0 0 0 10px;
+    font: normal 14px/32px "Microsoft Yahei","΢���ź�";
+    color: #555;
+    border-bottom: 1px solid #e7e7e7;
+}
+.sideLink a {
+    display: inline-block;
+    height: 24px;
+    margin: 0 6px 0 8px;
+    color: #666;
+    font: 12px/2 SimSun,"����";
+}
+.sideLink a {
+    display: inline-block;
+    height: 24px;
+    margin: 0 6px 0 8px;
+    color: #666;
+    font: 12px/2 SimSun,"����";
+}
+.sideLink a {
+    display: inline-block;
+    height: 24px;
+    margin: 0 6px 0 8px;
+    color: #666;
+    font: 12px/2 SimSun,"����";
+}
+.clearfix {
+    display: block;
+}
+.title1 {
+    padding-top: 20px;
+    height: 32px;
+    font-size: 18px;
+    line-height: 32px;
+    font-family: "Microsoft YaHei","微软雅黑";
+    color: #333;
+    border-bottom: 2px solid #e3e3e3;
+}
+.fieldInfo {
+    position: relative;
+    padding: 15px 0;
+}
+.table-pad{
+    padding: 0 30px;
+    font-weight: normal;
+
+    font-family: "Microsoft YaHei","΢���ź�";
+}
+.field-pad{
+    padding-left: 15px;
+}
+.field-pad a{
+    margin-right: 30px;
+    width: 75px;
+}
+.articlelist_wr {
+    width: 100%;
+    min-height: 300px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.listInfo {
+    position: relative;
+}
+ .result {
+    overflow: hidden;
+    clear: both;
+}
+.result h3 a {
+    color: #005cd9;
+    text-decoration: underline;
+}
+.res_info {
+    font-size: 12px;
+    margin-top: 3px;
+}
+ .res_year {
+    color: #005cd9;
+}
+a {
+    outline: 0;
+    color: #505961;
+    text-decoration: none;
+}
+.ex-main{
+    margin: 0 auto;
+    padding-top: 70px;
+}
+.topInfo {
+    position: relative;
+    padding: 15px 0;
+    background-color: #f5f5f5;
+}
+.wrap {
+    position: relative;
+    width: 1000px;
+    margin: 20px auto 0;
+}
+.baseInfo{
+    width: 1000px;
+}
+.info {
+    padding: 0 30px;
+    font-weight: normal;
+    font-family: "Microsoft YaHei","΢���ź�";
+}
+.info .name {
+    margin: 0 250px 10px 0;
+    font-size: 34px;
+    line-height: 1.5;
+    color: #000;
+    font-family: "Microsoft YaHei","΢���ź�";
+}
+.kcmsAu .info .name {
+    width: 572px;
+}
+.kcmsAu .info .name {
+    width: 372px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.info .orgn, .info .doma {
+    padding: 5px 0;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #333;
+}
+.info .num {
+    padding: 5px 0;
+    font-family: SimSun,����;
+    font-size: 12px;
+    line-height: 2;
+    color: #666;
+}
+.sideLink {
+    float: right;
+    position: absolute;
+    right: 10px;
+    top: 4px;
+    height: 24px;
+    color: #d7d7d7;
+}
+.shareBoard {
+    position: relative;
+    display: inline-block;
+    padding: 1px 1px 0 1px;
+}
+.sameName {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    width: 380px;
+}
+.sideLink {
+    float: right;
+    position: absolute;
+    right: 0px;
+    top: 4px;
+    height: 24px;
+    color: #d7d7d7;
+}
+.sameName .more {
+    color: #666;
+    font: normal 12px/2 SimSun,"����";
+}
+.title {
+    padding: 0 0 0 10px;
+    font: normal 14px/32px "Microsoft Yahei","΢���ź�";
+    color: #555;
+    border-bottom: 1px solid #e7e7e7;
+}
+.sideLink a {
+    display: inline-block;
+    height: 24px;
+    margin: 0 6px 0 8px;
+    color: #666;
+    font: 12px/2 SimSun,"����";
+}
+.sideLink a {
+    display: inline-block;
+    height: 24px;
+    margin: 0 6px 0 8px;
+    color: #666;
+    font: 12px/2 SimSun,"����";
+}
+.sideLink a {
+    display: inline-block;
+    height: 24px;
+    margin: 0 6px 0 8px;
+    color: #666;
+    font: 12px/2 SimSun,"����";
+}

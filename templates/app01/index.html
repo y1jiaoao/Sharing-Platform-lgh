@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/search.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/bootstrap-select.min.css" rel='stylesheet' type='text/css' />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <link href="/static/css/viewachieve.css" rel='stylesheet' type='text/css' />
+    <script src="https://cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
+    <script src="/static/js/bootstrap-select.min.js"></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--webfonts-->
+    <!--//webfonts-->
+    <title>ischolar-首页</title>
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid" >
+            <div class="nav navbar-default  navbar-header">
+                <a class="navbar-brand" href="/index/">iScholar</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav nav-pills navbar-left">
+
+                            <li class="active"><a href="/index/">主页</a></li>
+                </ul>
+            </div>
+            <div>
+                    <ul class="nav navbar-nav nav-pills navbar-right">
+                         <ul class="nav navbar-nav right">
+                                {% if not user_id %}
+                                    <li><a href="/loginView/">注册/登录</a></li>
+                                {% else %}
+                                    <li><a>您已经登录</a></li>
+                                    <li><a href="/accounts/login/">注销</a></li>
+                                    <li><a href="/PS/">个人信息</a></li>
+                                    <li><a href="/message/">消息中心</a></li>
+                                {% endif %}
+                        </ul>
+                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div style="width:1000px;height:230px;margin: 0 auto;text-align:center;">
+            <img src="/static/images/logo.png" style="margin-top:80px;"width="500" height="160" >
+        </div>
+        <form class="searchmain" method='get' action="/search/" target="_blank">
+
+
+            <div class="search-form" class="input-box">
+                <div class="input-box tab-content">
+                    <div id="menu3" class="tab-pane active " role="tabpanel">
+                        <input class="search-input" type="text" name="q" placeholder="查询内容" value="" autocomplete="off">
+                        <input class="btn search-btn" type="submit" value="查询">
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item" style="padding-top: 0px; padding-left: 20px">
+                <img src="/static/images/hotspot.png" style="position: absolute;top: 20px;left: 250px;width: 500px;height: 500px;z-index: -100"/>
+                <p class="label div-inline" style="padding-top: 1px;padding-left: 110px;">近期热点</p>
+            <p class="nav-item" style="margin-left:50px;margin-top:1em;">
+                <a class="nav-link" href={{href1}}>{{hotspot1}}</a>
+                <a class="nav-link" href={{href2}}>{{hotspot2}}</a>
+                <a class="nav-link" href={{href3}}>{{hotspot3}}</a>
+                <a class="nav-link" href={{href4}}>{{hotspot4}}</a>
+                <a class="nav-link" href={{href5}}>{{hotspot5}}</a>
+                <a class="nav-link" href={{href6}}>{{hotspot6}}</a>
+            </p>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

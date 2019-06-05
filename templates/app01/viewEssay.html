@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/viewachieve.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/bootstrap-select.min.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/msg.css" rel='stylesheet' type='text/css' />
+    <link rel="shortcut icon" href="/static/ico/favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
+    <script src="/static/js/bootstrap-select.min.js"></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--webfonts-->
+    <!--//下方修改为成果名称-->
+    <title>{{name}}-ischolar-论文数据库</title>
+</head>
+<style>
+    .author-text{
+        width: 600px;
+        color: #06f;
+        margin-left:1em;
+    }
+</style>
+<body>
+<!--导航栏-->
+    <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+        <div class="container-fluid" >
+            <div class="nav navbar-default  navbar-header">
+                <a class="navbar-brand" href="/index/">iScholar</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav nav-pills navbar-left">
+
+                            <li ><a href="/index/">主页</a></li>
+                </ul>
+            </div>
+            <div>
+                    <ul class="nav navbar-nav nav-pills navbar-right">
+                         <ul class="nav navbar-nav right">
+                                {% if not user_id %}
+                                    <li><a href="/loginView/">注册/登录</a></li>
+                                {% else %}
+                                    <li><a>您已经登录</a></li>
+                                    <li><a href="/accounts/login/">注销</a></li>
+                                    <li><a href="/PS/">个人信息</a></li>
+                                    <li><a href="/message/">消息中心</a></li>
+                                {% endif %}
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="va-main">
+        <div class="left-view">
+            <h2 href="#">{{ paper.paper_name }}</h2>
+            <div class="key-content">
+
+                <div class="author-wr">
+                    <p class="label div-inline">作者：</p>
+                    <a class="author-text" href="#">{{ paper.author_name }}</a>
+                </div>
+                <div class="author-wr">
+                    <p class="label div-inline">机构：</p>
+                    <a class="author-text" href="#">{{ paper.institute }}</a>
+                </div>
+                <div class="abstract-wr div-inline">
+                    <div class="label div-inline" >摘要：</div>
+                    <div style="margin-left:4.55em;"><p class="abstract div-inline" >{{ paper.introduction }}</p></div>
+                </div>
+                <div class="abstract-wr ">
+                    <p class="label" >关键词：</p>
+                    <div style="margin-left:4.5em;">
+                    <span class="abstract-wr" >
+                        <!--准备写for循环-->
+                        <p href="#">{{ paper.keywords }}</p></span>
+                    </span>
+                    </div>
+                </div>
+                <div class="abstract-wr">
+                    <p class="label">时间：</p>
+                    <div style="margin-left:4.5em;"><p class="abstract-wr" href="#">  {{ paper.published_time }}</p></div>
+
+                </div>
+                <div class="love-wr">
+                    <p class="color-src">
+                        来源:
+                        <a class="mar-src  color-src">
+                        {{ paper.cssci }}
+                        </a>
+                    </p>
+                    <p class="mar-src  color-src">
+                        数据库：{{ paper.db }}
+                    </p>
+                    <p class="mar-src  color-src">
+                        阅读量：{{ paper.clicks }}
+                    </p>
+                 </div>
+                 <div class="subinfo">
+                    <div class="subinfo-tool">
+                        <a href="/collect/essay/{{ paper.paper_id }}/"><button class="btn btn-primary ">{% if is_collect %}已收藏{% else %}收藏{% endif %}</button></a>
+                        <a href="/feedback/" target="_blank"><button class="btn btn-warning ">报错</button></a>
+                    </div>
+                </div>
+                <div class="paper-src-wr">
+                    <ul id="myTab" class="nav nav-tabs paper-src-tab">
+                        <li class="active">
+                            <a href="#menu1" data-toggle="tab">
+                                全部来源
+                            </a>
+                        </li>
+                        <li><a href="#menu2" data-toggle="tab">免费来源</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="menu1" class="active src-container" role="tabpanel">
+                            <span class="item-span">
+                                <a class="item" href="{{ paper.download_link }}">{{ paper.source }}</a>
+                            </span>
+                        </div>
+                        <div id="menu2" class="fade src-container" role="tabpanel">
+                            <span class="item-span">
+                                <a class="item" href="{{ paper.download_link }}">{{ paper.source }}</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div style="width:100%;height:2px;background-color:silver;margin-bottom:2em;margin-top:2em;"></div>
+            <div class="comment-container">
+                <div style="width:100%;height:4em;margin-bottom:3em;">
+                    <form action="/comment/essay/{{ paper.paper_id }}/" method="POST">
+                        {% csrf_token %}
+                        <textarea type="text" name="content"  placeholder="评论内容" style="width:80%;float:left;"class="form-control" rows="2" required></textarea>
+                        <input type="submit" onClick="" value="发送消息" class="btn-primary btn-lg" style="float:right;">
+                    </form>
+                    <div class="clear"></div>
+                </div>
+                {% for comment in comment_list %}
+                <div style="padding: 1.5em 0;font-size:1.2em;border-top-style:solid;border-width:1px;border-color:silver;">
+                    <div style="font-size:0.9em;color:grey;">{{ comment.comment_name }}</div>
+                    <div style="">{{ comment.content }}</div>
+                    <div style="font-size:0.8em;color:silver;">{{ comment.comment_date }}</div>
+                </div>
+                {% empty %}
+                <p>暂无评论</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% if messages %}
+        <script>
+            {% for msg in messages %}
+                alert('{{ msg.message }}');
+            {% endfor %}
+        </script>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,12 @@
+.header
+{
+	height: 100px;
+	width: 100%;
+	padding-top:20px;
+}
+.mainbody
+{
+	margin:30px 80px 40px 60px;
+	height:800px;
+	width:auto;
+}

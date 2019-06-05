@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/search.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/bootstrap-select.min.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/msg.css" rel='stylesheet' type='text/css' />
+    <link rel="shortcut icon" href="/static/ico/favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
+    <script src="/static/js/bootstrap-select.min.js"></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--webfonts-->
+    <!--//webfonts-->
+    <title>消息中心</title>
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid" >
+            <div class="nav navbar-default  navbar-header">
+                <a class="navbar-brand" href="/index/">iScholar</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav nav-pills navbar-left">
+
+                            <li class="active"><a href="/index/">主页</a></li>
+                </ul>
+            </div>
+            <div>
+                    <ul class="nav navbar-nav nav-pills navbar-right">
+                         <ul class="nav navbar-nav right">
+                                {% if not user_id %}
+                                    <li><a href="/loginView/">注册/登录</a></li>
+                                {% else %}
+                                    <li><a>您已经登录</a></li>
+                                    <li><a href="/accounts/login/">注销</a></li>
+                                    <li><a href="/PS/">个人信息</a></li>
+                                    <li><a href="/message/">消息中心</a></li>
+                                {% endif %}
+                        </ul>
+                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="msg-container">
+        <div class="msg-type">
+            <ul class="list-group">
+                <a href="#sys" class="list-group-item" data-toggle="pill" onclick='document.getElementById("badge1").innerHTML = ""'><span class="badge" id="badge1">{% if unread1 > 0 %}{{ unread1 }}{% endif %}</span>系统消息</a>
+                <a href="#inter" class="list-group-item" data-toggle="pill" onclick='document.getElementById("badge2").innerHTML = ""'><span class="badge" id="badge2">{% if unread2 > 0 %}{{ unread2 }}{% endif %}</span>用户私信</a>
+            </ul>
+        </div>
+        <div class="msg-list">
+            <div class="msg-list2 fade" id="sys">
+                {% for msg in data %}
+                    <div class="msg-item">
+                        {% if msg.type == "success" %}
+                            <div class="alert alert-success">{{ msg.content }}<div class="msg-item-time">{{ msg.send_date }}</div></div>
+                        {% elif msg.type == "info" %}
+                            <div class="alert alert-info">{{ msg.content }}<div class="msg-item-time">{{ msg.send_date }}</div></div>
+                        {% elif msg.type == "warning" %}
+                            <div class="alert alert-warning">{{ msg.content }}<div class="msg-item-time">{{ msg.send_date }}</div></div>
+                        {% elif msg.type == "danger" %}
+                            <div class="alert alert-danger">{{ msg.content }}<div class="msg-item-time">{{ msg.send_date }}</div></div>
+                        {% else %}
+                            <div class="alert alert-info">{{ msg.content }}<div class="msg-item-time">{{ msg.send_date }}</div></div>
+                        {% endif %}
+
+                    </div>
+                    {% empty %} <div>暂无消息</div>
+                {% endfor %}
+                    <!--<div class="alert alert-success">成功！很好地完成了提交。</div>
+                    <div class="alert alert-info">信息！请注意这个信息。</div>
+                    <div class="alert alert-warning">警告！请不要提交。</div>
+                    <div class="alert alert-danger">错误！请进行一些更改。</div>-->
+            </div>
+            <div class="msg-list-2 fade" id="inter">
+                {% for msg in data2 %}
+                    <div class="msg-item">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    发信人：{{ msg.send_name }} &nbsp;&nbsp;&nbsp;&nbsp;<a href="/sendmessage/" style="font-size:0.8em;color:blue;">reply</a><div class="msg-item-time">{{ msg.send_date }}</div>
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                {{ msg.content }}
+                            </div>
+                        </div>
+                    </div>
+                {% empty %} <div>暂无消息</div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

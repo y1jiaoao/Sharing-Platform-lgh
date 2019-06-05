@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ischolar充值中心</title>
+    <link href="/static/css/amazeui.min.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/main.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/static/css/bootstrap-select.min.css" rel='stylesheet' type='text/css' />
+    <script type="text/javascript" src="/static/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/amazeui.min.js"></script>
+    <script type="text/javascript" src="/static/js/ui-choose.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid" >
+            <div class="nav navbar-default  navbar-header">
+                <a class="navbar-brand" href="/index/">isholar</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav nav-pills navbar-left">
+
+                            <li ><a href="/index/">主页</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
+                                    成果分类
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">工科</a></li>
+                                    <li><a href="#">理科</a></li>
+                                    <li><a href="#">农科</a></li>
+                                </ul>
+                            </li>
+                        <li><a href="#">专利大厅</a></li>
+                </ul>
+            </div>
+            <div>
+                    <ul class="nav navbar-nav nav-pills navbar-right">
+                         <ul class="nav navbar-nav right">
+                                {% if not user_id %}
+                                    <li><a href="/loginView/">注册/登录</a></li>
+                                {% else %}
+                                    <li><a>您已经登录</a></li>
+                                    <li><a href="/accounts/login/">注销</a></li>
+                                    <li><a href="/PS/">个人信息</a></li>
+							 		<li><a href="/message/">消息中心</a></li>
+                                {% endif %}
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+<div class="pay">
+	<!--主体框架begin-->
+	<div class="tr_recharge">
+		<div class="tr_rechtext">
+			<p class="te_retit"><img src="/static/images/coin.png" alt="" />充值中心</p>
+			<p>1.积分是ischolar推出的虚拟货币，你可以使用积分购买站内的科技资源。</p>
+			<p>2.积分与人民币换算为10：1，即1元=10积分，你可以选择支付宝或者是微信的付款方式来进行充值，积分单次最低充值额度为100。</p>
+		</div>
+		<form action="" class="am-form" id="doc-vld-msg">
+			<div class="tr_rechbox">
+				<div class="tr_rechhead">
+					<img src="/static/images/ys_head2.jpg" />
+					<p>充值帐号：
+						<a href="#">#</a>              <!--此处接入已登录用户的用户名以及跳转到个人信息页面的链接-->
+						<a href="#">切换账号</a>       <!--此处接入跳转到登录页面的链接-->
+					</p>
+					<div class="tr_rechheadcion">
+						<img src="/static/images/coin.png" alt="" />
+						<span>当前余额：<span>1000积分</span></span>   <!--此处接入用户的积分余额-->
+					</div>
+				</div>
+				<div class="tr_rechli am-form-group">
+					<ul class="ui-choose am-form-group" id="uc_01">
+						<li>
+							<label class="am-radio-inline">
+									<input type="radio"  value="" name="docVlGender" required data-validation-message="请选择一项充值额度"> 100积分
+								</label>
+						</li>
+						<li>
+							<label class="am-radio-inline">
+									<input type="radio" name="docVlGender" data-validation-message="请选择一项充值额度"> 200积分
+								</label>
+						</li>
+
+						<li>
+							<label class="am-radio-inline">
+									<input type="radio" name="docVlGender" data-validation-message="请选择一项充值额度"> 500积分
+								</label>
+						</li>
+						<li>
+							<label class="am-radio-inline">
+									<input type="radio" name="docVlGender" data-validation-message="请选择一项充值额度"> 自定义额度
+								</label>
+						</li>
+					</ul>
+				</div>
+				<div class="tr_rechoth am-form-group">
+					<span>请输入充值金额（1元=10积分）：</span>
+					<input type="number" min="10" max="10000" value="10" class="othbox" data-validation-message="充值金额范围：10-10000元" />
+				</div>
+				<div class="tr_rechcho am-form-group">
+					<span>充值方式：</span>
+					<label class="am-radio">
+							<input type="radio" name="radio1" value="" data-am-ucheck required data-validation-message="请选择一种充值方式"><img src="/static/images/wechatpay.png">
+						</label>
+					<label class="am-radio" style="margin-right:30px;">
+							<input type="radio" name="radio1" value="" data-am-ucheck data-validation-message="请选择一种充值方式"><img src="/static/images/zfbpay.png">
+						</label>
+				</div>
+				<div class="tr_rechnum">
+					<span>应付金额：</span>
+					<p class="rechnum">0.00元</p>
+				</div>
+			</div>
+			<div class="tr_paybox">
+				<input type="submit" value="确认支付" class="tr_pay am-btn" />
+				<span>温馨提示：积分仅限于在本站购买科技资源，遇到问题请拨打联系电话xxx-xxxx</span>
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+	// 将所有.ui-choose实例化
+	$('.ui-choose').ui_choose();
+	
+	var uc_01 = $('#uc_01').data('ui-choose'); 
+	uc_01.click = function(index, item) {
+		console.log('click', index, item.text())
+	}
+	uc_01.change = function(index, item) {
+		console.log('change', index, item.text())
+	}
+	$(function() {
+		$('#uc_01 li:eq(3)').click(function() {
+			$('.tr_rechoth').show();
+			$('.tr_rechoth').find("input").attr('required', 'true')
+			$('.rechnum').text('10.00元');
+		})
+		$('#uc_01 li:eq(0)').click(function() {
+			$('.tr_rechoth').hide();
+			$('.rechnum').text('10.00元');
+			$('.othbox').val('');
+		})
+		$('#uc_01 li:eq(1)').click(function() {
+			$('.tr_rechoth').hide();
+			$('.rechnum').text('20.00元');
+			$('.othbox').val('');
+		})
+		$('#uc_01 li:eq(2)').click(function() {
+			$('.tr_rechoth').hide();
+			$('.rechnum').text('50.00元');
+			$('.othbox').val('');
+		})
+		$(document).ready(function() {
+			$('.othbox').on('input propertychange', function() {
+				var num = $(this).val();
+				$('.rechnum').html(num + ".00元");
+			});
+		});
+	})
+
+	$(function() {
+		$('#doc-vld-msg').validator({
+			onValid: function(validity) {
+				$(validity.field).closest('.am-form-group').find('.am-alert').hide();
+			},
+			onInValid: function(validity) {
+				var $field = $(validity.field);
+				var $group = $field.closest('.am-form-group');
+				var $alert = $group.find('.am-alert');
+
+				var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+				if(!$alert.length) {
+					$alert = $('<div class="am-alert am-alert-danger"></div>').hide().
+					appendTo($group);
+				}
+				$alert.html(msg).show();
+			}
+		});
+	});
+</script>
+<div style="text-align:center;">
+	<p>此处为底部信息，可根据需求添加或者直接删掉div</p>
+</div>
+</body>
+</html>
